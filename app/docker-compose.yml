@@ -1,0 +1,16 @@
+# My Compose File
+version: '2'
+
+services:
+  web:
+    image: myapp:latest
+    container_name: app
+    ports:
+      - '80:80'
+
+  db:
+    image: redis:latest
+    container_name: redis
+    ports: 
+      - '6379:6379'
+      - '5432:5432'

@@ -1,0 +1,57 @@
+Gartner Catalyst 2016
+August 15-18
+Docker Mobility Workshop
+Anna Belak
+Tony Iams
+
+
+CENTOS COMMANDS
+
+ls				List files in work directory
+cd [path]			Navigate directory structure
+ip addr				Show networking info
+clear				Clear the screen
+more [filename]			View file [filename]
+yum update			Update packages
+yum install [package]		Install some package
+
+
+DOCKER COMMANDS
+
+docker ps			List currently running containers
+docker ps -a			List all containers, including stopped
+docker images			List images stored on the local host
+docker volume ls		List Docker volumes 
+docker volume create		Create a Docker volume
+docker volume inspect [name]    See detailed info about volume, including path
+docker stop [name]		Stop the container [name]
+docker rm [name]		Remove the container [name]
+docker build -t [name] .	Build image called [name] from Dockerfile in 
+                                the work directory
+docker run [args] [name] [cmd]	Start a Docker container from image [name] with
+                                arguments [args] using [cmd] entrypoint process
+
+
+DOCKER-COMPOSE COMMANDS
+
+docker-compose up 		Start services defined in docker-compose.yml
+docker-compose up -d		Start services defined in docker-compose.yml 
+                                as background processes
+docker-compose down		Stop and remove all containers defined in 
+                                docker-compose.yml
+
+EXAMPLE 
+
+docker run -d -p 80:80 --name myContainer -v /path/on/host:/path/in/container nginx
+
+- This will start a container from then NGINX image. If the image does not 
+  exist on the host, the official image will be pulled from DockerHub. 
+
+- The '-d'instruction will run the process in background. 
+
+- The '-p' instruction will mount specific container ports to host ports. The 
+  host-side port is on the left, container-side port on the right of the colon.
+
+- The '-v' instruction will create a bind mount between two directories, one
+  in the host file system and one in the container file system. The host-side
+  mount point is on the left, container-side on the right.
